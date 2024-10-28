@@ -20,3 +20,18 @@ export async function getProducts(product){
     return fetchedProducts;
 }
 
+export async function getBooks() {
+    try {
+        const response = await fetch('http://localhost:8080/books');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Failed to fetch books:', error);
+        throw error;
+    }
+}
+
+ 
+
